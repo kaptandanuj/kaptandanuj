@@ -1,59 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>C Grade Checker</title>
-    <style>
-        body {
-            font-family: monospace;
-            background-color: #0e0e0e;
-            color: #33ff33;
-            padding: 20px;
-        }
-        pre {
-            background: #1e1e1e;
-            padding: 15px;
-            border-radius: 10px;
-        }
-    </style>
+  <title>C Program Grade Checker (JS Version)</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #00ff00;
+      font-family: monospace;
+      padding: 40px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-    <h1>C Program: Grade Checker</h1>
-    <pre>
-#include &lt;stdio.h&gt;
 
-int main() {
-    char grade;
-    int marks;
+  <h1>C Program: Grade Checker (JS Version)</h1>
 
-    printf("Enter your marks: ");
-    scanf("%d", &marks);
+  <label>Enter your marks: </label>
+  <input type="number" id="marksInput" min="0" max="100">
+  <button onclick="checkGrade()">Check Grade</button>
 
-    if (marks &lt;= 100 && marks &gt;= 90) {
+  <p id="result"></p>
+
+  <script>
+    function checkGrade() {
+      const marks = parseInt(document.getElementById("marksInput").value);
+      let grade = '';
+      let message = '';
+
+      if (marks <= 100 && marks >= 90) {
         grade = 'A';
-        printf("Your grade is %c\n", grade);
-    } 
-    else if (marks &lt; 90 && marks &gt;= 80) {
+        message = `Your grade is ${grade}`;
+      } else if (marks < 90 && marks >= 80) {
         grade = 'B';
-        printf("Your grade is %c\n", grade);
-    } 
-    else if (marks &lt; 80 && marks &gt;= 70) {
+        message = `Your grade is ${grade}`;
+      } else if (marks < 80 && marks >= 70) {
         grade = 'C';
-        printf("Your grade is %c\n", grade);
-    } 
-    else if (marks &lt; 70 && marks &gt;= 60) {
+        message = `Your grade is ${grade}`;
+      } else if (marks < 70 && marks >= 60) {
         grade = 'D';
-        printf("Your grade is %c\n", grade);
-    } 
-    else if (marks &lt; 60 && marks &gt;= 0) {
-        printf("Sorry, you're not eligible\n");
-    }
-    else {
-        printf("Invalid marks entered.\n");
-    }
+        message = `Your grade is ${grade}`;
+      } else if (marks < 60 && marks >= 0) {
+        message = "Sorry, you're not eligible";
+      } else {
+        message = "Invalid marks entered.";
+      }
 
-    return 0;
-}
-    </pre>
+      document.getElementById("result").innerText = message;
+    }
+  </script>
+
 </body>
 </html>
 
